@@ -10,9 +10,13 @@ const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 
+
+const userRoutes = require('./routes/user.routes');
+
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use('/api/users', userRoutes);
 
 app.use('/api/auth', authRoutes);
 
