@@ -88,7 +88,11 @@ exports.reviewPost = async (req, res) => {
   try {
     if (req.user.role !== 'admin') return res.status(403).json({ error: 'Forbidden' });
     const { id } = req.params;
+<<<<<<< HEAD
     const { action, comment } = req.body; 
+=======
+    const { action, comment } = req.body; // action: 'approve' or 'reject'
+>>>>>>> 04f6cf928c0afecff9ab2cc88922cb36b2385ea2
     const post = await Post.findById(id);
     if (!post) return res.status(404).json({ error: 'Post not found' });
     if (!['pending'].includes(post.status)) return res.status(400).json({ error: 'Only pending posts can be reviewed' });
